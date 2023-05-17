@@ -16,17 +16,14 @@ const productos = [
 
 function mostrarMenu() {
     let menu = "======    Marketplace de Frutas y Verduras    ======\n"; // Título del menú
-
     // Filtrar productos en oferta
     const productosEnOferta = productos.filter((producto) => producto.precio < 2.5);
-
     if (productosEnOferta.length > 0) {
         menu += "\n--- Productos en oferta ---\n";
         productosEnOferta.forEach((producto, index) => {
             menu += ` * ${producto.nombre}: $${producto.precio}\n`;
         });
     }
-
     menu += "\n--- Menú de productos ---\n";
     const columnWidth = Math.ceil(productos.length / 2); // Ancho de cada columna
     for (let i = 0; i < columnWidth; i++) {
@@ -34,10 +31,8 @@ function mostrarMenu() {
         const rightIndex = i + columnWidth;
         const leftProduct = productos[leftIndex];
         const rightProduct = productos[rightIndex];
-
         const leftLine = `${leftIndex + 1}. ${leftProduct ? `${leftProduct.nombre}: $${leftProduct.precio}` : ""}`;
         const rightLine = `${rightIndex + 1}. ${rightProduct ? `${rightProduct.nombre}: $${rightProduct.precio}` : ""}`;
-
         menu += `${leftLine.padEnd(30)} ${rightLine}\n`;
     }
     return menu;
@@ -48,7 +43,7 @@ function obtenerEleccion() {
     if (isNaN(eleccion)) {
         return null; // Finalizar el programa si se hizo clic en "Cancelar"
     }
-    while (isNaN(eleccion) || eleccion < 1 || eleccion > productos.length) {
+    while (eleccion < 1 || eleccion > productos.length) {
         eleccion = parseInt(prompt("Eleccion invalida, por favor ingrese un número del 1 al " + productos.length));
     }
     return eleccion;
@@ -80,7 +75,6 @@ function comprar() {
                 alert("Eleccion invalida, por favor seleccione 1 o 2");
         }
     }
-
     mostrarResumenCompra(carrito);
     mostrarProductosEconomicos();
 }
@@ -93,9 +87,7 @@ function mostrarResumenCompra(carrito) {
         resumen += `${index + 1}. ${producto.nombre}: $${producto.precio}\n`;
         total += producto.precio;
     });
-
     resumen += `-------------------------\nTotal: $${total.toFixed(2)}`;
     alert(resumen);
 }
-
 comprar();
