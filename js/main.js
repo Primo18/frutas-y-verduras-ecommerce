@@ -1,9 +1,15 @@
+// Elementos del DOM
 const productosList = document.querySelector(".productos");
 const carritoList = document.querySelector(".carrito__compra");
 const carritoTotal = document.querySelector(".carrito");
 const totalElement = document.querySelector(".total_compra_pagar");
-const URLJSON = "../data/productos.json";
 
+// URLs y datos
+const URLJSON = "../data/productos.json";
+let productos = [];
+let carrito = [];
+
+// Clase Producto
 class Producto {
   constructor(id, nombre, precio, categoria, stock, imagen) {
     this.id = id;
@@ -15,10 +21,7 @@ class Producto {
   }
 }
 
-let productos = [];
-let carrito = [];
-
-// Función para obtener los datos desde el JSON
+// Obtener los datos desde el JSON
 const getData = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
@@ -30,7 +33,6 @@ const mostrarProductos = () => {
   productos.forEach((producto) => {
     const div = document.createElement("div");
     div.classList.add("producto");
-
     const { imagen, nombre, stock, precio } = producto;
     /*HTML*/
     div.innerHTML = `
@@ -101,7 +103,6 @@ const mostrarCarrito = () => {
   carrito.forEach((producto) => {
     const div = document.createElement("div");
     div.classList.add("carrito__compra__info");
-
     const { nombre, precio, cantidad } = producto;
     /*HTML*/
     div.innerHTML = `
@@ -118,11 +119,8 @@ const mostrarCarrito = () => {
 // Mostrar el total de la compra
 const mostrarTotal = () => {
   const total = carrito.reduce((acc, producto) => acc + parseFloat(producto.precio) * producto.cantidad, 0);
-
-  const totalCompraPagar = document.querySelector(".total_compra_pagar");
-
-  if (totalCompraPagar.firstChild) {
-    const totalSpan = totalCompraPagar.querySelector("span:last-child");
+  if (totalElement.firstChild) {
+    const totalSpan = totalElement.querySelector("span:last-child");
     totalSpan.textContent = `$${total.toFixed(2)}`;
   } else {
     const div = document.createElement("div");
@@ -130,7 +128,7 @@ const mostrarTotal = () => {
         <span>Total</span>
         <span>$${total.toFixed(2)}</span>
       `;
-    totalCompraPagar.appendChild(div);
+    totalElement.appendChild(div);
   }
 };
 
