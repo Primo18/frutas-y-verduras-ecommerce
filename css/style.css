@@ -1,0 +1,253 @@
+/* Import Roboto from google fonts */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* Body */
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Colores */
+:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+}
+
+/* Estilo para el Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2rem;
+  background: var(--dark);
+  color: var(--light);
+}
+
+.logo {
+  width: 100px;
+}
+
+.logo img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+header a {
+  color: var(--light);
+  text-decoration: none;
+}
+
+header ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.header .search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2rem;
+  background: var(--dark);
+  color: var(--light);
+  gap: 1rem;
+}
+
+.header .search-bar .search-bar__input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  font-size: 1rem;
+}
+
+.header .search-bar .search-bar__button {
+  background: var(--primary);
+  color: var(--light);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Estilos para los contenedores */
+.main {
+  padding: 2rem;
+  min-width: fit-content;
+  flex-grow: 2;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+
+  margin-bottom: 2rem;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Estilos para producto */
+.productos {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.producto {
+  min-width: 300px;
+  flex-basis: 300px;
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.producto .producto__img {
+  height: 200px;
+  width: 100%;
+}
+
+.producto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.producto__nombre {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.producto__stock {
+  color: var(--success);
+  font-weight: bold;
+}
+
+.producto__precio {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.producto__button {
+  background: var(--primary);
+  color: var(--light);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.producto__button:hover {
+  background: var(--dark);
+}
+
+.producto__button:disabled {
+  background: var(--secondary);
+  cursor: not-allowed;
+}
+
+/* Estilos para Carrito De Compras */
+.carrito {
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+  min-width: 300px;
+  flex-basis: 300px;
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrito__compra .carrito__compra__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.carrito__compra .carrito__compra__info .cancel-button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--danger);
+}
+
+.carrito .total_compra_pagar {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.carrito__compra__button {
+  background: var(--primary);
+  color: var(--light);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.carrito__compra__button:hover {
+  background: var(--dark);
+}
+
+.carrito__compra__button:disabled {
+  background: var(--secondary);
+  cursor: not-allowed;
+}
+
+.footer {
+  background: var(--dark);
+  color: var(--light);
+  padding: 2rem;
+  text-align: center;
+}

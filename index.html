@@ -1,15 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>MarketPlace de Frutas y Verduras</title>
-</head>
-
-<body>
-    <script defer src="./main.js"></script>
-</body>
-
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="./img/logo-canasta.png" alt="logo" />
+      </div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#">Inicio</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#">Productos</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <input class="search-bar__input" type="text" placeholder="Buscar..." />
+        <button class="search-bar__button">Buscar</button>
+      </div>
+    </header>
+    <main class="main">
+      <section class="title">
+        <h1>¡Bienvenidos a nuestro MarketPlace de Frutas y Verduras!</h1>
+        <h3>En este sitio podrás encontrar las mejores frutas y verduras de la región.</h3>
+      </section>
+      <div class="wrapper">
+        <section class="productos"></section>
+        <section class="carrito">
+          <h2>Carrito de Compras</h2>
+          <div class="carrito__compra"></div>
+          <div class="total_compra_pagar"></div>
+          <button class="carrito__compra__button">Pagar</button>
+          <button class="carrito__compra__button vaciar_carrito">Vaciar Carrito</button>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2023 Ecommerce de Frutas y Verduras. Todos los derechos reservados.</p>
+    </footer>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
