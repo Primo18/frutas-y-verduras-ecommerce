@@ -5,7 +5,7 @@ const carritoTotal = document.querySelector(".carrito");
 const totalElement = document.querySelector(".total_compra_pagar");
 
 // URLs y datos
-const URLJSON = "../data/productos.json";
+const URLJSON = "./productos.json";
 let productos = [];
 let carrito = [];
 
