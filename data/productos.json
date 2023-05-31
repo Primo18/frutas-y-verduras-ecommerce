@@ -5,7 +5,7 @@
     "categoria": "Fruta",
     "precio": 1.99,
     "stock": 100,
-    "imagen": "../img/manzanas.png"
+    "imagen": "./img/manzanas.png"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "categoria": "Fruta",
     "precio": 0.99,
     "stock": 80,
-    "imagen": "../img/platano.jpg"
+    "imagen": "./img/platano.jpg"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "categoria": "Verdura",
     "precio": 0.49,
     "stock": 50,
-    "imagen": "../img/zanahoria.jpg"
+    "imagen": "./img/zanahoria.jpg"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "categoria": "Verdura",
     "precio": 0.79,
     "stock": 30,
-    "imagen": "../img/tomate.jpg"
+    "imagen": "./img/tomate.jpg"
   },
   {
     "id": 5,
