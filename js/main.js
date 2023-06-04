@@ -1,7 +1,7 @@
 // Elementos del DOM
 const productosList = document.querySelector(".productos");
 const carritoList = document.querySelector(".carrito__compra");
-const carritoTotal = document.querySelector(".carrito");
+const btn_empty_cart = document.querySelector(".vaciar_carrito");
 const totalElement = document.querySelector(".total_compra_pagar");
 
 // URLs y datos
@@ -158,7 +158,7 @@ const cargarCarritoDesdeLocalStorage = () => {
 // Eventos
 productosList.addEventListener("click", addToCart);
 carritoList.addEventListener("click", borrarDelCarrito);
-carritoTotal.addEventListener("click", vaciarCarrito);
+btn_empty_cart.addEventListener("click", vaciarCarrito);
 
 // Cargar el carrito al cargar la página
 window.addEventListener("DOMContentLoaded", () => {
