@@ -3,6 +3,7 @@ const productosList = document.querySelector(".productos");
 const carritoList = document.querySelector(".carrito__compra");
 const btn_empty_cart = document.querySelector(".vaciar_carrito");
 const totalElement = document.querySelector(".total_compra_pagar");
+const btn_pay_cart = document.querySelector(".pagar_carrito");
 
 // URLs y datos
 const URLJSON = "./productos.json";
@@ -91,11 +92,52 @@ const borrarDelCarrito = (e) => {
 
 // Vaciar el carrito
 const vaciarCarrito = () => {
-  carrito = [];
-  carritoList.innerHTML = "";
-  mostrarTotal();
-  localStorage.clear();
+  if (carrito.length === 0) {
+    Swal.fire("Carrito vacío", "El carrito está vacío. Agrega productos para continuar.", "warning");
+    return;
+  }
+  Swal.fire({
+    title: "¿Estás seguro?",
+    text: "Esta acción vaciará el carrito. ¿Deseas continuar?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Vaciar",
+    reverseButtons: true,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      carrito = [];
+      carritoList.innerHTML = "";
+      mostrarTotal();
+      localStorage.clear();
+      Swal.fire("Carrito vaciado", "El carrito se ha vaciado exitosamente.", "success");
+    }
+  });
 };
+
+// Pagar el carrito
+const pagarCarrito = () => {
+  if (carrito.length === 0) {
+    Swal.fire("Carrito vacío", "El carrito está vacío. Agrega productos para continuar.", "warning");
+    return; 
+  }
+  Swal.fire({
+    title: "¿Estás seguro?",
+    text: "Esta acción te llevará a la página de pago. ¿Deseas continuar?",
+    icon: "info",
+    showCancelButton: true,
+    confirmButtonText: "Pagar",
+    reverseButtons: true,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      carrito = [];
+      carritoList.innerHTML = "";
+      mostrarTotal();
+      localStorage.clear();
+      Swal.fire("Pago iniciado", "Te redirigiremos a la página de pago en breve.", "success");
+    }
+  });
+};
+
 
 // Mostrar el carrito
 const mostrarCarrito = () => {
@@ -159,6 +201,7 @@ const cargarCarritoDesdeLocalStorage = () => {
 productosList.addEventListener("click", addToCart);
 carritoList.addEventListener("click", borrarDelCarrito);
 btn_empty_cart.addEventListener("click", vaciarCarrito);
+btn_pay_cart.addEventListener("click", pagarCarrito);
 
 // Cargar el carrito al cargar la página
 window.addEventListener("DOMContentLoaded", () => {
